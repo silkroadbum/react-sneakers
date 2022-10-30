@@ -1,10 +1,22 @@
+import React from 'react';
 import styles from './Card.module.scss';
 
-function Card({title, price, imageUrl, onClick}) {
+function Card({title, price, imageUrl}) {
+    const [isAdded, setIsAdded] = React.useState(false);
+    const [isFavorite, setIsFavorite] = React.useState(false);
+
+    const onClickPlus = () => {
+        setIsAdded(!isAdded);
+    }
+
+    const onClickFavorite = () => {
+        setIsFavorite(!isFavorite);
+    }
+
     return (
         <div className={styles.card}>
-            <div className={styles.favorite}>
-                <img src="/img/heart-unliked.svg" alt="Unliked heart."/>
+            <div className={styles.favorite} onClick={onClickFavorite}>
+                <img src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked heart."/>
             </div>
             <img src={imageUrl} alt="Кроссовки" width={133} height={112}/>
             <h5>{title}</h5>
@@ -13,9 +25,7 @@ function Card({title, price, imageUrl, onClick}) {
                 <span>Цена:</span>
                 <b>{price} руб.</b>
             </div>
-            <button className="button" onClick={onClick}>
-                <img src="/img/plus.svg" alt="Плюс." width={11} height={11}/>
-            </button>
+            <img className={styles.plus} onClick={onClickPlus} src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} alt="Плюс."/>
             </div>
         </div>
     );

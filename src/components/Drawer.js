@@ -1,10 +1,10 @@
-function Drawer() {
+function Drawer({onClose}) {
     return (
-        <div style={{ display: 'none' }} className="overlay">
+        <div className="overlay">
             <div className="drawer">
                 <h2 className="mb-30 d-flex justify-between">
                     Корзина
-                    <img className="remove-btn cu-p" src="/img/btn-remove.svg" alt="Remove." width={32} height={32} />
+                    <img onClick={onClose} className="remove-btn cu-p" src="/img/btn-remove.svg" alt="Close." width={32} height={32} />
                 </h2>
 
                 <div className="items">
