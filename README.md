@@ -1,1 +1,1 @@
-Учебный проект "Реакт Сникерс" на React с использованием React Router, axios, mockapi
+Учебный проект "Реакт Сникерс" на React с использованием Хуков, React Router, axios, mockapi
