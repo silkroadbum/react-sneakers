@@ -28,7 +28,9 @@ function Header({onClickCart}) {
                     </Link>
                 </li>
                 <li>
-                    <img src="/img/user.svg" alt="Профиль пользователя." width={18} height={18}/>
+                    <Link to='/orders'>
+                        <img src="/img/user.svg" alt="Профиль пользователя." width={18} height={18}/>
+                    </Link>
                 </li>
             </ul>
         </header>

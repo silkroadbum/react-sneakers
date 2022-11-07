@@ -4,6 +4,7 @@ import { Routes,Route } from "react-router-dom";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import Home from "./pages/Home";
+import Orders from "./pages/Orders";
 import Favorites from "./pages/Favorites";
 import AppContext from "./context";
 
@@ -74,7 +75,7 @@ function App() {
   }
 
   return (
-    <AppContext.Provider value={{items, cartItems, favorites, isItemAdded, setCartOpened, setCartItems, onAddToFavorite}}>
+    <AppContext.Provider value={{items, cartItems, favorites, isItemAdded, setCartOpened, setCartItems, onAddToFavorite, onAddToCart}}>
       <div className="wrapper clear">
         {cartOpened && <Drawer items={cartItems} onClose={()=> setCartOpened(false)} onRemove={onRemoveItem}/>}
         <Header onClickCart={()=> setCartOpened(true)}/>
@@ -93,6 +94,9 @@ function App() {
           }/>
           <Route path="/favorites" element={
             <Favorites />
+          }/>
+          <Route path="/orders" element={
+            <Orders/>
           }/>
         </Routes>
       </div>
