@@ -7,8 +7,6 @@ function Card({id, title, price, imageUrl, onPlus, onFavorite, favorited = false
     const {isItemAdded} = React.useContext(AppContext);
     const [isFavorite, setIsFavorite] = React.useState(favorited);
 
-    console.log(title, isItemAdded(id));
-
     const onClickPlus = () => {
         onPlus({id, title, price, imageUrl});
     }
