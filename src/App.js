@@ -97,8 +97,12 @@ function App() {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id))
   }
 
+  const toHomePage = () => {
+    window.location.href = '/';
+  }
+
   return (
-    <AppContext.Provider value={{items, cartItems, favorites, isItemAdded, setCartOpened, setCartItems, onAddToFavorite, onAddToCart}}>
+    <AppContext.Provider value={{items, cartItems, favorites, isItemAdded, setCartOpened, setCartItems, onAddToFavorite, onAddToCart, toHomePage}}>
       <div className="wrapper clear">
         <Drawer items={cartItems} onClose={()=> setCartOpened(false)} onRemove={onRemoveItem} opened={cartOpened}/>
         <Header onClickCart={()=> setCartOpened(true)}/>

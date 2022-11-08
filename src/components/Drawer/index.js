@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import AppContext from '../../context';
 
 import Info from "../info";
 import { useCart } from '../../hooks/useCart';
@@ -9,6 +10,7 @@ import styles from './Drawer.module.scss';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function Drawer({onClose, onRemove, items = [], opened}) {
+    const {setCartOpened} = React.useContext(AppContext);
     const { cartItems, setCartItems, totalPrice} = useCart();
     const [isOrderComplete, setIsOrderComplete] = React.useState(false);
     const [orderId, setOrderId] = React.useState(null);
@@ -83,6 +85,8 @@ function Drawer({onClose, onRemove, items = [], opened}) {
                             title={isOrderComplete ? 'Заказ оформлен!' : 'Корзина пустая'}
                             description={isOrderComplete? `Ваш заказ №${orderId} скоро будет передан курьерской доставке` : 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'} 
                             image={isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'}
+                            fn={() => setCartOpened(false)}
+                            buttonTitle={'Вернуться назад'}
                         />
                     )
                 }
