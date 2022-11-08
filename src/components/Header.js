@@ -8,7 +8,7 @@ function Header({onClickCart}) {
 
     return (
         <header className="d-flex justify-between align-center p-40">
-            <Link to='/'>
+            <Link to=''>
                 <div className="d-flex align-center">
                     <img src="img/logo.png" alt="Логотип магазина React Sneakers." width={40} height={40}/>
                     <div>
@@ -23,12 +23,12 @@ function Header({onClickCart}) {
                     <span>{totalPrice} руб.</span>
                 </li>
                 <li className="mr-10 cu-p">
-                    <Link to="/favorites">
+                    <Link to="favorites">
                         <img src="img/heart.svg" alt="Избранное." width={18} height={18}/>
                     </Link>
                 </li>
                 <li>
-                    <Link to='/orders'>
+                    <Link to='orders'>
                         <img src="img/user.svg" alt="Профиль пользователя." width={18} height={18}/>
                     </Link>
                 </li>
